@@ -10,15 +10,19 @@
 		</id>
 
 		<property name="username" type="java.lang.String">
-			<column name="username" length="20" />
+			<column name="username" length="45" />
 		</property>
 
 		<property name="password" type="java.lang.String">
-			<column name="password" length="16" />
+			<column name="password" length="45" />
 		</property>
 
 		<property name="email" type="java.lang.String">
-			<column name="email" length="30" not-null="true" />
+			<column name="email" length="255" not-null="true" />
+		</property>
+
+		<property name="socialId" type="java.lang.String">
+			<column name="socialId" length="45" />
 		</property>
 
 		<property name="avatar" type="java.lang.String">
@@ -38,5 +42,11 @@
 		select user
 		from User user
 		where user.email = :email
+	</query>
+	<query name="User.SelectUserByUserSocialId">
+		select user
+		from User user
+		where user.socialId =
+		:socialId
 	</query>
 </hibernate-mapping>

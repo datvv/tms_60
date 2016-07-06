@@ -24,7 +24,7 @@ public class UserBusinessImpl implements UserBusiness {
 			return getUserDAO().findByUserId(user_id);
 		} catch (Exception e) {
 			e.printStackTrace();
-			log.error("findByUserId, exception:" + e);
+			log.error("findByUserId:get failed:" + e.toString());
 		}
 		return null;
 	}
@@ -34,9 +34,40 @@ public class UserBusinessImpl implements UserBusiness {
 		try {
 			return getUserDAO().findUserByEmail(email);
 		} catch (Exception e) {
-			 log.error("findByEmail, exception:" + e);
+			log.error("findByEmail:get failed:" + e.toString());
 		}
 		return null;
+	}
+
+	@Override
+	public void addNormalUser(User user) throws Exception {
+		try {
+			getUserDAO().addNormalUser(user);
+		} catch (Exception e) {
+			e.printStackTrace();
+			log.error("addNewUser:get failed" + e.toString());
+		}
+	}
+
+	@Override
+	public User findByUserSocialId(String socialId) throws Exception {
+		try {
+			return getUserDAO().findByUserSocialId(socialId);
+		} catch (Exception e) {
+			e.printStackTrace();
+			log.error("addNewUser:get failed" + e.toString());
+		}
+		return null;
+	}
+
+	@Override
+	public void addSocialUser(com.restfb.types.User me, User user) throws Exception {
+		try {
+			getUserDAO().addSocialUser(me, user);
+		} catch (Exception e) {
+			e.printStackTrace();
+			log.error("addSocialUser:get failed" + e.toString());
+		}
 	}
 
 }

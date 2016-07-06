@@ -10,6 +10,7 @@ public class User implements Serializable {
 	private String username;
 	private String password;
 	private String email;
+	private String socialId;
 	private String avatar;
 	private String role;
 
@@ -43,6 +44,14 @@ public class User implements Serializable {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public String getSocialId() {
+		return socialId;
+	}
+
+	public void setSocialId(String socialId) {
+		this.socialId = socialId;
 	}
 
 	public String getAvatar() {
