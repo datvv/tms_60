@@ -8,7 +8,7 @@ import framgiavn.project02.web.ulti.Logit2;
 
 public class UserAction extends ActionSupport {
 
-	private Logit2 log = Logit2.getInstance(UserAction.class);
+//	private Logit2 log = Logit2.getInstance(UserAction.class);
 
 	private UserBusiness userBusiness = null;
 	private User user = null;
@@ -35,6 +35,10 @@ public class UserAction extends ActionSupport {
 	}
 
 	public String homePage() {
+		return SUCCESS;
+	}
+	
+	public String supervisorPage() {
 		return SUCCESS;
 	}
 

@@ -66,5 +66,8 @@
 	<bean id="springUserAction" class="framgiavn.project02.web.action.UserAction"
 		scope="prototype">
 	</bean>
+	<bean id="springSupervisorAction" class="framgiavn.project02.web.action.SupervisorAction"
+    	scope="prototype">
+    </bean>
 
 </beans>
