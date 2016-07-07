@@ -11,4 +11,29 @@
 		<put-list-attribute name="css">
 		</put-list-attribute>
 	</definition>
+
+	<definition name="USER_LOGIN" extends="Default.Web">
+		<put-attribute name="body" value="/user/user_login.jsp" />
+		<put-list-attribute name="js">
+		</put-list-attribute>
+		<put-list-attribute name="css">
+		</put-list-attribute>
+	</definition>
+
+	<definition name="USER_LOGIN_SUCCESS" extends="Default.Web">
+		<put-attribute name="body" value="/user/user_login_success.jsp" />
+		<put-list-attribute name="js">
+		</put-list-attribute>
+		<put-list-attribute name="css">
+		</put-list-attribute>
+	</definition>
+
+	<definition name="SUPERVISOR_LOGIN_SUCCESS" extends="Default.Web">
+		<put-attribute name="body"
+			value="/supervisor/supervisor_login_success.jsp" />
+		<put-list-attribute name="js">
+		</put-list-attribute>
+		<put-list-attribute name="css">
+		</put-list-attribute>
+	</definition>
 </tiles-definitions>

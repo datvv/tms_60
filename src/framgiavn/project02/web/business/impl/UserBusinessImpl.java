@@ -29,4 +29,14 @@ public class UserBusinessImpl implements UserBusiness {
 		return null;
 	}
 
+	@Override
+	public User findUserByEmail(String email) {
+		try {
+			return getUserDAO().findUserByEmail(email);
+		} catch (Exception e) {
+			 log.error("findByEmail, exception:" + e);
+		}
+		return null;
+	}
+
 }

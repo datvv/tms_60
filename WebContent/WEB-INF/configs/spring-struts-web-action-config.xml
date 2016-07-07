@@ -8,5 +8,7 @@
 	<bean id="springUserAction" class="framgiavn.project02.web.action.UserAction">
 		<property name="userBusiness" ref="UserBusiness" />
 	</bean>
+	<bean id="springSupervisorAction" class="framgiavn.project02.web.action.SupervisorAction">
+    </bean>
 
 </beans>

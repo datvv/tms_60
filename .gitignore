@@ -17,3 +17,4 @@ hs_err_pid*
 .settings/
 .tern-project
 build/
+WebContent/WEB-INF/configs/spring-server-config.properties
