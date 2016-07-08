@@ -14,5 +14,13 @@
 			</bean>
 		</property>
 	</bean>
+	<bean id="TaskBusiness" parent="transactionProxyTemplate">
+		<property name="target">
+			<bean class="framgiavn.project02.web.business.impl.TaskBusinessImpl">
+				<property name="taskDAO" ref="TaskDAO" />
+				<property name="userTaskDAO" ref="UserTaskDAO" />
+			</bean>
+		</property>
+	</bean>
 
 </beans>

@@ -1,0 +1,12 @@
+body {
+	background-color: whitesmoke;
+}
+
+.subjectDetail{
+	text-align: center;
+}
+.tasks{
+	margin:auto;
+	text-align: center;
+	width: 50%;
+}

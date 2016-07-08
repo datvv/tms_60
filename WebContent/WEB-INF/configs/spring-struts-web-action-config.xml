@@ -10,5 +10,9 @@
 	</bean>
 	<bean id="springSupervisorAction" class="framgiavn.project02.web.action.SupervisorAction">
     </bean>
+    <bean id="springSubjectScreenAction" class="framgiavn.project02.web.action.SubjectScreenAction">
+    	<property name="taskBusiness" ref="TaskBusiness" />
+    	<property name="userBusiness" ref="UserBusiness" />
+    </bean>
 
 </beans>

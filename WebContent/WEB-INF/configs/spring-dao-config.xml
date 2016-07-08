@@ -8,5 +8,15 @@
 			<ref bean="sessionFactory" />
 		</property>
 	</bean>
+	<bean id="TaskDAO" class="framgiavn.project02.web.dao.impl.TaskDAOImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="UserTaskDAO" class="framgiavn.project02.web.dao.impl.UserTaskDAOImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
 
 </beans>
