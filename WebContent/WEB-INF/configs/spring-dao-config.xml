@@ -28,5 +28,10 @@
 			<ref bean="sessionFactory" />
 		</property>
 	</bean>
+	<bean id="ActivityDAO" class="framgiavn.project02.web.dao.impl.ActivityDAOImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
 
 </beans>

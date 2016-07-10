@@ -7,6 +7,7 @@ import java.util.List;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import com.opensymphony.xwork2.ActionSupport;
+import framgiavn.project02.web.business.ActivityBusiness;
 import framgiavn.project02.web.business.SubjectBusiness;
 import framgiavn.project02.web.business.TaskBusiness;
 import framgiavn.project02.web.business.UserBusiness;
@@ -29,6 +30,8 @@ public class SubjectScreenAction extends ActionSupport {
 	private Subject subject;
 	private UserSubject userSubject;
 	private UserTaskBusiness userTaskBusiness;
+	private ActivityBusiness activityBusiness;
+	private List<Activity> activityList;
 
 	public String showSubjecDetail() {
 		UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
@@ -36,13 +39,15 @@ public class SubjectScreenAction extends ActionSupport {
 		taskList = taskBusiness.getTasksByUserIdAndSubjectId(user.getId(), subjectId);
 		subject = subjectBusiness.getSubjectByUserSubjectId(subjectId);
 		userSubject = userSubjectBusiness.getUserSubjectByUserSubjectId(subjectId);
+		activityList = activityBusiness.getAllActivities(user.getId());
 		return SUCCESS;
 	}
-	
-	public String editTaskStatus(){
+
+	public String editTaskStatus() {
 		UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		User user = userBusiness.findUserByEmail(userDetails.getUsername());
 		userTaskBusiness.editTaskStatus(user.getId(), taskList, subjectId);
+		activityList = activityBusiness.getAllActivities(user.getId());
 		return SUCCESS;
 	}
 
@@ -109,5 +114,22 @@ public class SubjectScreenAction extends ActionSupport {
 	public void setUserTaskBusiness(UserTaskBusiness userTaskBusiness) {
 		this.userTaskBusiness = userTaskBusiness;
 	}
+
+	public List<Activity> getActivityList() {
+		return activityList;
+	}
+
+	public void setActivityList(List<Activity> activityList) {
+		this.activityList = activityList;
+	}
+
+	public ActivityBusiness getActivityBusiness() {
+		return activityBusiness;
+	}
+
+	public void setActivityBusiness(ActivityBusiness activityBusiness) {
+		this.activityBusiness = activityBusiness;
+	}
+	
 
 }

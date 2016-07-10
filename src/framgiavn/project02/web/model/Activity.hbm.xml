@@ -21,4 +21,16 @@
 			<column name="actionType" length="45" />
 		</property>
 	</class>
+	<query name="Activity.selectAllActivites">
+		Select activity
+		From Activity activity
+		Where activity.userId = :userId
+	</query>
+	<query name="Activity.findActivity">
+		Select activity
+		From Activity activity
+		Where activity.userId = :userId
+		and activity.targetId = :targetId
+		and activity.actionType = :actionTypeId
+	</query>
 </hibernate-mapping>

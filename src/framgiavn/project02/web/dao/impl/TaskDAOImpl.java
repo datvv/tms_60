@@ -24,7 +24,14 @@ public class TaskDAOImpl extends HibernateDaoSupport implements TaskDAO {
 		} catch (RuntimeException e) {
 			throw e;
 		}
+	}
 
+	@Override
+	public Task getTasByUserTaskId(int userTaskId) throws Exception {
+		String hql = "Select task from Task task Where task.id in "
+				+ "(Select userTask.taskId From UserTask userTask Where userTask.id = :userTaskId)";
+		Query query = getSession().createQuery(hql).setParameter("userTaskId", userTaskId);
+		return (Task) query.uniqueResult();
 	}
 
 }

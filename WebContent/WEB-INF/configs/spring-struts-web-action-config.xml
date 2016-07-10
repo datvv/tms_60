@@ -16,6 +16,7 @@
     	<property name="subjectBusiness" ref="SubjectBusiness" />
     	<property name="userSubjectBusiness" ref="UserSubjectBusiness" />
     	<property name="userTaskBusiness" ref="UserTaskBusiness" />
+    	<property name="activityBusiness" ref="ActivityBusiness" />
     </bean>
 
 </beans>

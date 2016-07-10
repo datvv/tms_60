@@ -4,6 +4,7 @@
 package framgiavn.project02.web.model;
 
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * @author vuvandat
@@ -16,6 +17,20 @@ public class Activity implements Serializable {
 	private int userId;
 	private int targetId;
 	private String actionType;
+	private String content;
+	private Date createAt;
+	private Date updateAt;
+
+	public Activity() {
+		super();
+	}
+
+	public Activity(int userId, int targetId, String actionType) {
+		super();
+		this.userId = userId;
+		this.targetId = targetId;
+		this.actionType = actionType;
+	}
 
 	public int getId() {
 		return id;
@@ -47,6 +62,30 @@ public class Activity implements Serializable {
 
 	public void setActionType(String actionType) {
 		this.actionType = actionType;
+	}
+
+	public String getContent() {
+		return content;
+	}
+
+	public void setContent(String content) {
+		this.content = content;
+	}
+
+	public Date getCreateAt() {
+		return createAt;
+	}
+
+	public void setCreateAt(Date createAt) {
+		this.createAt = createAt;
+	}
+
+	public Date getUpdateAt() {
+		return updateAt;
+	}
+
+	public void setUpdateAt(Date updateAt) {
+		this.updateAt = updateAt;
 	}
 
 }

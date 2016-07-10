@@ -5,7 +5,9 @@
 	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 <div class="subjectDetail">
 	<div class="subject">
-		<h2><s:property value="subject.name"/> </h2>
+		<h2>
+			<s:property value="subject.name" />
+		</h2>
 	</div>
 	<div class="tasks">
 		<form action="editTaskStatus" method="post">
@@ -15,11 +17,13 @@
 								name="taskList[%{#stat.index}].status" /></span> <s:property
 							value="%{#task.name}" /></li>
 				</s:iterator>
-				<s:submit type="button" align="center">
-					<s:param name="value">
-						<fmt:message key="msg.update" />
-					</s:param>
-				</s:submit>
+				<div id="btn">
+					<s:submit type="button">
+						<s:param name="value">
+							<fmt:message key="msg.update" />
+						</s:param>
+					</s:submit>
+				</div>
 			</ul>
 		</form>
 	</div>
@@ -48,7 +52,13 @@
 		</div>
 	</div>
 	<div class="row-content">
-		<h2></h2>
+		<h2>
+			<fmt:message key="msg.activity" />
+		</h2>
+		<s:iterator value="%{activityList}" var="activity">
+			<s:property value="#activity.content" />
+			<br />
+		</s:iterator>
 	</div>
 
 </div>
