@@ -1,5 +1,7 @@
 body {
 	background-color: whitesmoke;
+	margin: auto;
+	width: 80%;
 }
 
 .subjectDetail{
@@ -9,4 +11,14 @@ body {
 	margin:auto;
 	text-align: center;
 	width: 50%;
+}
+.row-content{
+	margin: auto;
+	width: 80%;
+	text-align: left;
+}
+.subject{
+	margin: auto;
+	width: 80%;
+	text-align: left;
 }
