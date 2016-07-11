@@ -25,6 +25,10 @@
 		<action name="userAccess" class="springSupervisorAction" method="execute">
             <result name="success">USER_LOGIN_SUCCESS</result>
         </action>
+        <action name="showSubjecDetail" class="springSubjectScreenAction" method="showSubjecDetail">
+        	<result name="success">SUBJECT_DETAIL</result>
+        </action>
+        
 	</package>
 	
 	<package name="supervisor" namespace="/supervisor" extends="default-web-supervisor">

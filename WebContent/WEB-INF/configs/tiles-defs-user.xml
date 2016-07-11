@@ -36,4 +36,14 @@
 		<put-list-attribute name="css">
 		</put-list-attribute>
 	</definition>
+	
+	<definition name="SUBJECT_DETAIL" extends="Default.Web">
+		<put-attribute name="body"
+			value="/user/subject_detail.jsp" />
+		<put-list-attribute name="js">
+		</put-list-attribute>
+		<put-list-attribute name="css">
+			<add-attribute value="/css/style.css" />
+		</put-list-attribute>
+	</definition>
 </tiles-definitions>

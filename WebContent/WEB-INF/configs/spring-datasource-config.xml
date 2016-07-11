@@ -40,6 +40,10 @@
 		<property name="mappingResources">
 			<list>
 				<value>framgiavn/project02/web/model/User.hbm.xml</value>
+				<value>framgiavn/project02/web/model/Task.hbm.xml</value>
+				<value>framgiavn/project02/web/model/Subject.hbm.xml</value>
+				<value>framgiavn/project02/web/model/UserTask.hbm.xml</value>
+				<value>framgiavn/project02/web/model/CourseSubject.hbm.xml</value>
 			</list>
 		</property>
 	</bean>
@@ -67,6 +71,9 @@
 		scope="prototype">
 	</bean>
 	<bean id="springSupervisorAction" class="framgiavn.project02.web.action.SupervisorAction"
+    	scope="prototype">
+    </bean>
+    <bean id="springSubjectScreenAction" class="framgiavn.project02.web.action.SubjectScreenAction"
     	scope="prototype">
     </bean>
 

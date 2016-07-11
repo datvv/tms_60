@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="framgiavn.project02.web.model.UserTask" table="User_Task"
+		dynamic-insert="true" dynamic-update="true">
+		<id name="id" type="java.lang.Integer">
+			<column name="id" length="10" />
+			<generator class="increment" />
+		</id>
+
+		<property name="userId" type="java.lang.Integer">
+			<column name="userId" length="10" />
+		</property>
+		
+		<property name="taskId" type="java.lang.Integer">
+			<column name="taskId" length="10" />
+		</property>
+		
+		<property name="userSubjectId" type="java.lang.Integer">
+			<column name="user_subject_id" length="10" />
+		</property>
+	</class>
+	<query name="UserTask.SelectUserTaskByUserIdAndTaskId">
+		select userTask
+		from UserTask userTask
+		where userTask.userId = :userId
+		and userTask.taskId = :taskId
+	</query>
+</hibernate-mapping>
