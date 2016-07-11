@@ -32,6 +32,31 @@
 		<property name="role" type="java.lang.String">
 			<column name="role" length="45" not-null="true" />
 		</property>
+		
+		<set name="activities" cascade="all-delete-orphan" table="Activities" inverse="true"
+			lazy="false" fetch="join">
+			<key>
+				<column name="userId" not-null="true" />
+			</key>
+			<one-to-many class="framgiavn.project02.web.model.Activity" />
+		</set>
+		
+		<set name="userSubjects" cascade="all" table="User_Subject" inverse="true"
+			lazy="false" fetch="join">
+			<key>
+				<column name="userId" not-null="true" />
+			</key>
+			<one-to-many class="framgiavn.project02.web.model.UserSubject" />
+		</set>
+		
+		<set name="userTasks" cascade="all" table="User_Task" inverse="true"
+			lazy="false" fetch="join">
+			<key>
+				<column name="userId" not-null="true" />
+			</key>
+			<one-to-many class="framgiavn.project02.web.model.UserTask" />
+		</set>
+		
 	</class>
 	<query name="User.SelectUserByUserId">
 		select user

@@ -8,6 +8,12 @@
 			<column name="id" length="10" />
 			<generator class="increment" />
 		</id>
+		
+		<many-to-one name="user"
+			class="framgiavn.project02.web.model.User" lazy="false" fetch="join"
+			insert="false" update="false">
+			<column name="userId" not-null="true" />
+		</many-to-one>
 
 		<property name="userId" type="java.lang.Integer">
 			<column name="userId" length="10" />

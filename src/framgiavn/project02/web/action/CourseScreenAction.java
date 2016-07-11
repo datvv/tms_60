@@ -29,14 +29,6 @@ public class CourseScreenAction extends ActionSupport {
 		return SUCCESS;
 	}
 
-	public User getUser() {
-		return user;
-	}
-
-	public void setUserBusiness(UserBusiness userBusiness) {
-		this.userBusiness = userBusiness;
-	}
-
 	public Course getCourse() {
 		return course;
 	}

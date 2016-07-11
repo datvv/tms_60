@@ -1,6 +1,8 @@
 package framgiavn.project02.web.model;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 public class User implements Serializable {
 
@@ -13,6 +15,9 @@ public class User implements Serializable {
 	private String socialId;
 	private String avatar;
 	private String role;
+	private Set<Activity> activities = new HashSet<Activity>(0);
+	private Set<UserSubject> userSubjects = new HashSet<UserSubject>(0);
+	private Set<UserTask> userTasks = new HashSet<UserTask>(0);
 
 	public int getId() {
 		return id;
@@ -68,6 +73,30 @@ public class User implements Serializable {
 
 	public void setRole(String role) {
 		this.role = role;
+	}
+
+	public Set<Activity> getActivities() {
+		return activities;
+	}
+
+	public void setActivities(Set<Activity> activities) {
+		this.activities = activities;
+	}
+
+	public Set<UserSubject> getUserSubjects() {
+		return userSubjects;
+	}
+
+	public void setUserSubjects(Set<UserSubject> userSubjects) {
+		this.userSubjects = userSubjects;
+	}
+
+	public Set<UserTask> getUserTasks() {
+		return userTasks;
+	}
+
+	public void setUserTasks(Set<UserTask> userTasks) {
+		this.userTasks = userTasks;
 	}
 
 }

@@ -12,7 +12,7 @@ import framgiavn.project02.web.model.Activity;
  */
 public interface AcitivityDAO {
 	
-	public List<Activity> getAllActivities(int userId) throws Exception; 
+	public List<Activity> getAllActivities(int userId) throws Exception;
 	
 	public void addActivity(Activity activity) throws Exception;
 	

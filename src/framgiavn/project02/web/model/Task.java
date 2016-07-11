@@ -5,6 +5,8 @@ package framgiavn.project02.web.model;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * @author vuvandat
@@ -19,6 +21,8 @@ public class Task implements Serializable {
 	private Date endDate;
 	private int subjectId;
 	private boolean status;
+	private Subject subject;
+	private Set<UserTask> userTasks = new HashSet<UserTask>(0);
 
 	public int getId() {
 		return id;
@@ -66,6 +70,22 @@ public class Task implements Serializable {
 
 	public void setStatus(boolean status) {
 		this.status = status;
+	}
+
+	public Subject getSubject() {
+		return subject;
+	}
+
+	public void setSubject(Subject subject) {
+		this.subject = subject;
+	}
+
+	public Set<UserTask> getUserTasks() {
+		return userTasks;
+	}
+
+	public void setUserTasks(Set<UserTask> userTasks) {
+		this.userTasks = userTasks;
 	}
 
 }

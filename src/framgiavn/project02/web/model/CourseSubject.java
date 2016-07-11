@@ -4,6 +4,8 @@
 package framgiavn.project02.web.model;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * @author vuvandat
@@ -16,6 +18,8 @@ public class CourseSubject implements Serializable {
 	private int courseId;
 	private int subjectId;
 	private String status;
+	private Set<UserSubject> userSubjects = new HashSet<UserSubject>(0);
+	private Subject subject;
 
 	public int getId() {
 		return id;
@@ -47,6 +51,22 @@ public class CourseSubject implements Serializable {
 
 	public void setStatus(String status) {
 		this.status = status;
+	}
+
+	public Set<UserSubject> getUserSubjects() {
+		return userSubjects;
+	}
+
+	public void setUserSubjects(Set<UserSubject> userSubjects) {
+		this.userSubjects = userSubjects;
+	}
+
+	public Subject getSubject() {
+		return subject;
+	}
+
+	public void setSubject(Subject subject) {
+		this.subject = subject;
 	}
 
 }

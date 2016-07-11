@@ -9,6 +9,12 @@
 			<generator class="increment" />
 		</id>
 		
+		<many-to-one name="subject"
+			class="framgiavn.project02.web.model.Subject" lazy="false" fetch="join"
+			insert="false" update="false">
+			<column name="subjectId" not-null="true" />
+		</many-to-one>
+		
 		<property name="courseId" type="java.lang.Integer">
 			<column name="courseId" length="10" />
 		</property>	
@@ -20,6 +26,14 @@
 		<property name="status" type="java.lang.String">
 			<column name="status" length="45" />
 		</property>
+		
+		<set name="userSubjects" cascade="all" table="User_Subject" inverse="true"
+			lazy="false" fetch="join">
+			<key>
+				<column name="course_subject_id" not-null="true" />
+			</key>
+			<one-to-many class="framgiavn.project02.web.model.UserSubject" />
+		</set>
 	</class>
 	
 </hibernate-mapping>

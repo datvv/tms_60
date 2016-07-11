@@ -7,13 +7,12 @@ import java.util.List;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import com.opensymphony.xwork2.ActionSupport;
-import framgiavn.project02.web.business.ActivityBusiness;
-import framgiavn.project02.web.business.SubjectBusiness;
-import framgiavn.project02.web.business.TaskBusiness;
+import framgiavn.project02.web.business.SubjectScreenBusiness;
 import framgiavn.project02.web.business.UserBusiness;
-import framgiavn.project02.web.business.UserSubjectBusiness;
-import framgiavn.project02.web.business.UserTaskBusiness;
+import framgiavn.project02.web.constant.TmsContant;
+import framgiavn.project02.web.logic.SubjectScreenLogic;
 import framgiavn.project02.web.model.*;
+import framgiavn.project02.web.ulti.Logit2;
 
 /**
  * @author vuvandat
@@ -21,42 +20,52 @@ import framgiavn.project02.web.model.*;
  */
 public class SubjectScreenAction extends ActionSupport {
 
-	private TaskBusiness taskBusiness;
 	private UserBusiness userBusiness;
-	private UserSubjectBusiness userSubjectBusiness;
-	private SubjectBusiness subjectBusiness;
 	private List<Task> taskList;
 	private int subjectId = 3;
 	private Subject subject;
 	private UserSubject userSubject;
-	private UserTaskBusiness userTaskBusiness;
-	private ActivityBusiness activityBusiness;
 	private List<Activity> activityList;
+	private List<User> traineesList;
+	private List<User> supervisorsList;
+	private int courseId = 1;
+	private SubjectScreenBusiness subjectScreenBusiness;
+	private SubjectScreenLogic subjectScreenLogic = new SubjectScreenLogic();
+	private Logit2 log = Logit2.getInstance(SubjectScreenAction.class);
 
 	public String showSubjecDetail() {
-		UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-		User user = userBusiness.findUserByEmail(userDetails.getUsername());
-		taskList = taskBusiness.getTasksByUserIdAndSubjectId(user.getId(), subjectId);
-		subject = subjectBusiness.getSubjectByUserSubjectId(subjectId);
-		userSubject = userSubjectBusiness.getUserSubjectByUserSubjectId(subjectId);
-		activityList = activityBusiness.getAllActivities(user.getId());
-		return SUCCESS;
+		try {
+			UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication()
+					.getPrincipal();
+			User user = userBusiness.findUserByEmail(userDetails.getUsername());
+			userSubject = subjectScreenBusiness.getUserSubjectByUserSubjectCourse(user.getId(), subjectId, courseId);
+			subject = userSubject.getCourseSubject().getSubject();
+			taskList = subjectScreenLogic.processTaskStatus(user, userSubject, subject.getTasks());
+			activityList = subjectScreenLogic.processActivities(user.getActivities(), taskList);
+			traineesList = subjectScreenLogic
+					.getListUsersByRoleInClass(userSubject.getCourseSubject().getUserSubjects(), TmsContant.ROLE_USER);
+			supervisorsList = subjectScreenLogic.getListUsersByRoleInClass(
+					userSubject.getCourseSubject().getUserSubjects(), TmsContant.ROLE_SUPERVISOR);
+			return SUCCESS;
+		} catch (Exception e) {
+			log.error("show subject detail failed ", e);
+		}
+		return null;
 	}
 
 	public String editTaskStatus() {
-		UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-		User user = userBusiness.findUserByEmail(userDetails.getUsername());
-		userTaskBusiness.editTaskStatus(user.getId(), taskList, subjectId);
-		activityList = activityBusiness.getAllActivities(user.getId());
-		return SUCCESS;
-	}
-
-	public TaskBusiness getTaskBusiness() {
-		return taskBusiness;
-	}
-
-	public void setTaskBusiness(TaskBusiness taskBusiness) {
-		this.taskBusiness = taskBusiness;
+		try {
+			SubjectScreenLogic subjectScreenLogic = new SubjectScreenLogic();
+			UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication()
+					.getPrincipal();
+			User user = userBusiness.findUserByEmail(userDetails.getUsername());
+			List<Activity> activities = subjectScreenBusiness.editTaskStatus(user.getId(), taskList, userSubject);
+			activityList = subjectScreenLogic.processActivities(activities, taskList);
+			return SUCCESS;
+		} catch (Exception e) {
+			log.error("edit task failed ", e);
+		}
+		return null;
 	}
 
 	public List<Task> getTaskList() {
@@ -75,22 +84,6 @@ public class SubjectScreenAction extends ActionSupport {
 		this.userBusiness = userBusiness;
 	}
 
-	public UserSubjectBusiness getUserSubjectBusiness() {
-		return userSubjectBusiness;
-	}
-
-	public void setUserSubjectBusiness(UserSubjectBusiness userSubjectBusiness) {
-		this.userSubjectBusiness = userSubjectBusiness;
-	}
-
-	public SubjectBusiness getSubjectBusiness() {
-		return subjectBusiness;
-	}
-
-	public void setSubjectBusiness(SubjectBusiness subjectBusiness) {
-		this.subjectBusiness = subjectBusiness;
-	}
-
 	public Subject getSubject() {
 		return subject;
 	}
@@ -107,14 +100,6 @@ public class SubjectScreenAction extends ActionSupport {
 		this.userSubject = userSubject;
 	}
 
-	public UserTaskBusiness getUserTaskBusiness() {
-		return userTaskBusiness;
-	}
-
-	public void setUserTaskBusiness(UserTaskBusiness userTaskBusiness) {
-		this.userTaskBusiness = userTaskBusiness;
-	}
-
 	public List<Activity> getActivityList() {
 		return activityList;
 	}
@@ -123,12 +108,28 @@ public class SubjectScreenAction extends ActionSupport {
 		this.activityList = activityList;
 	}
 
-	public ActivityBusiness getActivityBusiness() {
-		return activityBusiness;
+	public List<User> getTraineesList() {
+		return traineesList;
 	}
 
-	public void setActivityBusiness(ActivityBusiness activityBusiness) {
-		this.activityBusiness = activityBusiness;
+	public void setTraineesList(List<User> traineesList) {
+		this.traineesList = traineesList;
+	}
+
+	public List<User> getSupervisorsList() {
+		return supervisorsList;
+	}
+
+	public void setSupervisorsList(List<User> supervisorsList) {
+		this.supervisorsList = supervisorsList;
+	}
+
+	public SubjectScreenBusiness getSubjectScreenBusiness() {
+		return subjectScreenBusiness;
+	}
+
+	public void setSubjectScreenBusiness(SubjectScreenBusiness subjectScreenBusiness) {
+		this.subjectScreenBusiness = subjectScreenBusiness;
 	}
 
 }
