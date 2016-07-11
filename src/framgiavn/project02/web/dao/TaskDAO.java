@@ -13,4 +13,5 @@ import framgiavn.project02.web.model.*;
 public interface TaskDAO {
 	
 	public List<Task> getTasksBySubjectId(int subjectId) throws Exception;
+	
 }

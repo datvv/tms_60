@@ -17,6 +17,17 @@ public class UserTask implements Serializable {
 	private int taskId;
 	private int userSubjectId;
 
+	public UserTask() {
+		super();
+	}
+
+	public UserTask(int userId, int taskId, int userSubjectId) {
+		super();
+		this.userId = userId;
+		this.taskId = taskId;
+		this.userSubjectId = userSubjectId;
+	}
+
 	public int getId() {
 		return id;
 	}

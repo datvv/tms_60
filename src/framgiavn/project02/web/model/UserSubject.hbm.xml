@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="framgiavn.project02.web.model.UserSubject" table="User_Subject"
+		dynamic-insert="true" dynamic-update="true">
+		<id name="id" type="java.lang.Integer">
+			<column name="id" length="10" />
+			<generator class="increment" />
+		</id>
+
+		<property name="userId" type="java.lang.Integer">
+			<column name="userId" length="10" />
+		</property>
+
+		<property name="courseSubjectId" type="java.lang.Integer">
+			<column name="course_subject_id" length="10" />
+		</property>
+
+		<property name="status" type="java.lang.String">
+			<column name="status" length="45" />
+		</property>
+
+	</class>
+	<query name="UserSubject.SelectUserSubjectByUserSubjectId">
+		select userSubject
+		from UserSubject userSubject
+		where userSubject.id = :userSubjectId
+	</query>
+</hibernate-mapping>

@@ -28,6 +28,9 @@
         <action name="showSubjecDetail" class="springSubjectScreenAction" method="showSubjecDetail">
         	<result name="success">SUBJECT_DETAIL</result>
         </action>
+        <action name="editTaskStatus" class="springSubjectScreenAction" method="editTaskStatus">
+        	<result name="success">SUBJECT_DETAIL</result>
+        </action>
         
 	</package>
 	
