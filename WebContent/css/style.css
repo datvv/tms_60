@@ -4,26 +4,36 @@ body {
 	width: 80%;
 }
 
-.subjectDetail{
+.subjectDetail {
 	text-align: center;
 }
-.tasks{
-	margin:auto;
+
+.tasks {
+	margin: auto;
 	text-align: center;
 	width: 50%;
 }
-.row-content{
+
+.row-content {
 	margin: auto;
 	width: 80%;
 	text-align: left;
 }
-.subject{
+
+.subject {
 	margin: auto;
 	width: 80%;
 	text-align: left;
 }
-#btn{
-	margin-top:20px;
+
+#btn {
+	margin-top: 20px;
 	width: 50%;
+	text-align: center;
+}
+
+#headName {
+	font-size: 1.6em;
+	font-weight: bold;
 	text-align: center;
 }

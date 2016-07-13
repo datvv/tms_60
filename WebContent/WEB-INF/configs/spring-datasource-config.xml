@@ -46,6 +46,8 @@
 				<value>framgiavn/project02/web/model/CourseSubject.hbm.xml</value>
 				<value>framgiavn/project02/web/model/UserSubject.hbm.xml</value>
 				<value>framgiavn/project02/web/model/Activity.hbm.xml</value>
+				<value>framgiavn/project02/web/model/Course.hbm.xml</value>
+				<value>framgiavn/project02/web/model/UserCourse.hbm.xml</value>
 			</list>
 		</property>
 	</bean>
@@ -69,18 +71,20 @@
 			</props>
 		</property>
 	</bean>
-	
+
 	<bean id="springUserAction" class="framgiavn.project02.web.action.UserAction"
 		scope="prototype">
 	</bean>
 	<bean id="springSupervisorAction" class="framgiavn.project02.web.action.SupervisorAction"
-    	scope="prototype">
-    </bean>
-    <bean id="springSubjectScreenAction" class="framgiavn.project02.web.action.SubjectScreenAction"
-    	scope="prototype">
-    </bean>
-
+		scope="prototype">
+	</bean>
+	<bean id="springSubjectScreenAction" class="framgiavn.project02.web.action.SubjectScreenAction"
+		scope="prototype">
+	</bean>
 	<bean id="springUserSignUpAction" class="framgiavn.project02.web.action.UserSignUpAction"
+		scope="prototype">
+	</bean>
+	<bean id="springCourseScreenAction" class="framgiavn.project02.web.action.CourseScreenAction"
 		scope="prototype">
 	</bean>
 

@@ -19,7 +19,7 @@
 			<result-type name="tiles"
 				class="org.apache.struts2.views.tiles.TilesResult" default="true" />
 		</result-types>
-		<action name="login">
+	  	<action name="login">
 			<result>USER_LOGIN</result>
 		</action>
 		<action name="userAccess" class="springSupervisorAction"
@@ -38,6 +38,9 @@
 			<result name="input">SIGNUP</result>
 			<result name="success">SIGNUP_SUCCESS</result>
 			<result name="error">SIGNUP</result>
+		</action>
+		<action name="showCourse" class="springCourseScreenAction" method="showCourse">
+			<result name="success">COURSE_DETAIL</result>
 		</action>
 	</package>
 
