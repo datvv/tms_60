@@ -14,4 +14,6 @@ public interface TaskDAO {
 	
 	public List<Task> getTasksBySubjectId(int subjectId) throws Exception;
 	
+	public Task getTasByUserTaskId(int userTaskId) throws Exception;
+	
 }

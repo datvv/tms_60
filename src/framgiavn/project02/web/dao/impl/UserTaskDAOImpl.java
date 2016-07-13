@@ -43,6 +43,7 @@ public class UserTaskDAOImpl extends HibernateDaoSupport implements UserTaskDAO 
 		try {
 			Session session = getSession();
 			session.saveOrUpdate(userTask);
+			session.flush();
 		} catch (Exception e) {
 			throw e;
 		}
