@@ -69,6 +69,7 @@
 			</props>
 		</property>
 	</bean>
+	
 	<bean id="springUserAction" class="framgiavn.project02.web.action.UserAction"
 		scope="prototype">
 	</bean>
@@ -78,5 +79,9 @@
     <bean id="springSubjectScreenAction" class="framgiavn.project02.web.action.SubjectScreenAction"
     	scope="prototype">
     </bean>
+
+	<bean id="springUserSignUpAction" class="framgiavn.project02.web.action.UserSignUpAction"
+		scope="prototype">
+	</bean>
 
 </beans>

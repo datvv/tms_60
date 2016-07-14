@@ -22,28 +22,36 @@
 		<action name="login">
 			<result>USER_LOGIN</result>
 		</action>
-		<action name="userAccess" class="springSupervisorAction" method="execute">
-            <result name="success">USER_LOGIN_SUCCESS</result>
-        </action>
-        <action name="showSubjecDetail" class="springSubjectScreenAction" method="showSubjecDetail">
-        	<result name="success">SUBJECT_DETAIL</result>
-        </action>
-        <action name="editTaskStatus" class="springSubjectScreenAction" method="editTaskStatus">
-        	<result name="success">SUBJECT_DETAIL</result>
-        </action>
-        
+		<action name="userAccess" class="springSupervisorAction"
+			method="execute">
+			<result name="success">USER_LOGIN_SUCCESS</result>
+		</action>
+		<action name="showSubjecDetail" class="springSubjectScreenAction"
+			method="showSubjecDetail">
+			<result name="success">SUBJECT_DETAIL</result>
+		</action>
+		<action name="editTaskStatus" class="springSubjectScreenAction"
+			method="editTaskStatus">
+			<result name="success">SUBJECT_DETAIL</result>
+		</action>
+		<action name="signUp" class="springUserSignUpAction" method="signUp">
+			<result name="input">SIGNUP</result>
+			<result name="success">SIGNUP_SUCCESS</result>
+			<result name="error">SIGNUP</result>
+		</action>
 	</package>
-	
+
 	<package name="supervisor" namespace="/supervisor" extends="default-web-supervisor">
 		<result-types>
 			<result-type name="tiles"
 				class="org.apache.struts2.views.tiles.TilesResult" default="true" />
 		</result-types>
-		<action name="supervisorAccess" class="springSupervisorAction" method="execute">
-            <result name="success">SUPERVISOR_LOGIN_SUCCESS</result>
-        </action>
+		<action name="supervisorAccess" class="springSupervisorAction"
+			method="execute">
+			<result name="success">SUPERVISOR_LOGIN_SUCCESS</result>
+		</action>
 		<action name="supervisorLogin">
-            <result>USER_LOGIN</result>  
-        </action>
+			<result>USER_LOGIN</result>
+		</action>
 	</package>
 </struts>

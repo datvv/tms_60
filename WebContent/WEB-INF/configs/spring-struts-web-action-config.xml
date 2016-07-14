@@ -19,4 +19,8 @@
     	<property name="activityBusiness" ref="ActivityBusiness" />
     </bean>
 
+	<bean id="springUserSignUpAction" class="framgiavn.project02.web.action.UserSignUpAction">
+		<property name="userBusiness" ref="UserBusiness" />
+	</bean>
+
 </beans>
