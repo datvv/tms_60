@@ -25,9 +25,9 @@
 				exception="java.lang.RuntimeException" />
 		</global-exception-mappings>
 
-		<action name="" class="springUserSignUpAction" method="homePage">
+		<action name="" class="springCourseScreenAction" method="showCourse">
 			<!-- <param name="user.id">{1}</param> -->
-			<result>SIGNUP</result>
+			<result>COURSE_DETAIL</result>
 		</action>
 
 	</package>

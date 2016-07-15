@@ -9,18 +9,22 @@
 		<property name="userBusiness" ref="UserBusiness" />
 	</bean>
 	<bean id="springSupervisorAction" class="framgiavn.project02.web.action.SupervisorAction">
-    </bean>
-    <bean id="springSubjectScreenAction" class="framgiavn.project02.web.action.SubjectScreenAction">
-    	<property name="taskBusiness" ref="TaskBusiness" />
-    	<property name="userBusiness" ref="UserBusiness" />
-    	<property name="subjectBusiness" ref="SubjectBusiness" />
-    	<property name="userSubjectBusiness" ref="UserSubjectBusiness" />
-    	<property name="userTaskBusiness" ref="UserTaskBusiness" />
-    	<property name="activityBusiness" ref="ActivityBusiness" />
-    </bean>
+	</bean>
+	<bean id="springSubjectScreenAction" class="framgiavn.project02.web.action.SubjectScreenAction">
+		<property name="taskBusiness" ref="TaskBusiness" />
+		<property name="userBusiness" ref="UserBusiness" />
+		<property name="subjectBusiness" ref="SubjectBusiness" />
+		<property name="userSubjectBusiness" ref="UserSubjectBusiness" />
+		<property name="userTaskBusiness" ref="UserTaskBusiness" />
+		<property name="activityBusiness" ref="ActivityBusiness" />
+	</bean>
 
 	<bean id="springUserSignUpAction" class="framgiavn.project02.web.action.UserSignUpAction">
 		<property name="userBusiness" ref="UserBusiness" />
+	</bean>
+
+	<bean id="springCourseScreenAction" class="framgiavn.project02.web.action.CourseScreenAction">
+		<property name="courseBusiness" ref="CourseBusiness" />
 	</bean>
 
 </beans>

@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="framgiavn.project02.web.model.UserCourse" table="User_Course">
+		<id name="id" type="java.lang.Integer">
+			<column name="id" />
+			<generator class="increment" />
+		</id>
+		<property name="userId" type="java.lang.Integer">
+			<column name="userId" />
+		</property>
+		<property name="courseId" type="java.lang.Integer">
+			<column name="courseId" />
+		</property>
+		<property name="status" type="java.lang.String">
+			<column name="status" />
+		</property>
+	</class>
+</hibernate-mapping>

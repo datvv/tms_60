@@ -130,6 +130,5 @@ public class SubjectScreenAction extends ActionSupport {
 	public void setActivityBusiness(ActivityBusiness activityBusiness) {
 		this.activityBusiness = activityBusiness;
 	}
-	
 
 }
