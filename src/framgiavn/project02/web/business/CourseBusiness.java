@@ -1,7 +1,8 @@
 package framgiavn.project02.web.business;
 
 import java.util.List;
-
+import java.util.Map;
+import java.util.Set;
 import framgiavn.project02.web.model.Course;
 import framgiavn.project02.web.model.Subject;
 
@@ -16,5 +17,11 @@ public interface CourseBusiness {
 	public List<Subject> getSubjectList(Integer courseId) throws Exception;
 
 	public void retrieveCourseDetail(Integer courseId) throws Exception;
+
+	public void addAndSave(Course course) throws Exception;
+
+	public void deleteCourse(int courseId) throws Exception;
+
+	public Map<String, Map<Course, Set<? extends Object>>> showCourseDetail(int courseId) throws Exception;
 
 }

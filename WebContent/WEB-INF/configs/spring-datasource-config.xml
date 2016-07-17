@@ -87,5 +87,8 @@
 	<bean id="springCourseScreenAction" class="framgiavn.project02.web.action.CourseScreenAction"
 		scope="prototype">
 	</bean>
+	<bean id="springManageCourseAction" class="framgiavn.project02.web.action.ManageCourseAction"
+		scope="prototype">
+	</bean>
 
 </beans>

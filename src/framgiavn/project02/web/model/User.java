@@ -18,6 +18,7 @@ public class User implements Serializable {
 	private Set<Activity> activities = new HashSet<Activity>(0);
 	private Set<UserSubject> userSubjects = new HashSet<UserSubject>(0);
 	private Set<UserTask> userTasks = new HashSet<UserTask>(0);
+	private Set<UserCourse> userCourses = new HashSet<UserCourse>(0);
 
 	public int getId() {
 		return id;
@@ -97,6 +98,14 @@ public class User implements Serializable {
 
 	public void setUserTasks(Set<UserTask> userTasks) {
 		this.userTasks = userTasks;
+	}
+
+	public Set<UserCourse> getUserCourses() {
+		return userCourses;
+	}
+
+	public void setUserCourses(Set<UserCourse> userCourses) {
+		this.userCourses = userCourses;
 	}
 
 }

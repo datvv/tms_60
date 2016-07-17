@@ -7,6 +7,16 @@
 			<column name="id" />
 			<generator class="increment" />
 		</id>
+		<many-to-one name="user"
+			class="framgiavn.project02.web.model.User" lazy="false" fetch="join"
+			insert="false" update="false">
+			<column name="userId" not-null="true" />
+		</many-to-one>
+		<many-to-one name="course"
+			class="framgiavn.project02.web.model.Course" lazy="false" fetch="join"
+			insert="false" update="false">
+			<column name="courseId" not-null="true" />
+		</many-to-one>
 		<property name="userId" type="java.lang.Integer">
 			<column name="userId" />
 		</property>

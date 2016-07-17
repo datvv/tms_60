@@ -25,7 +25,7 @@
 			<column name="instruction" length="1000" />
 		</property>
 		
-		<set name="courseSubjects" cascade="all" table="Course_Subject" inverse="true"
+		<set name="courseSubjects" cascade="all-delete-orphan" table="Course_Subject" inverse="true"
 			lazy="false" fetch="join">
 			<key>
 				<column name="subjectId" not-null="true" />
@@ -33,7 +33,7 @@
 			<one-to-many class="framgiavn.project02.web.model.CourseSubject" />
 		</set>
 		
-		<set name="tasks" cascade="all" table="Tasks" inverse="true"
+		<set name="tasks" cascade="all-delete-orphan" table="Tasks" inverse="true"
 			lazy="false" fetch="join">
 			<key>
 				<column name="subjectId" not-null="true" />

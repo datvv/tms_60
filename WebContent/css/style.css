@@ -37,3 +37,30 @@ body {
 	font-weight: bold;
 	text-align: center;
 }
+
+#content {
+	background-color: white;
+}
+
+#content h2 {
+	text-align: center;
+}
+
+#subject {
+	text-align: center;
+}
+
+#instruction {
+	text-align: center;
+	margin-top: 20px;
+}
+
+#supervisor {
+	margin-top: 20px;
+	text-align: center;
+}
+
+#trainee {
+	margin-top: 20px;
+	text-align: center;
+}

@@ -15,4 +15,8 @@ public interface CourseDAO {
 
 	public Course findCourseById(Integer courseId) throws Exception;
 
+	public void addAndSaveCourse(Course course) throws Exception;
+
+	public void deleteCourse(Course course) throws Exception;
+
 }
