@@ -96,4 +96,16 @@ public class UserDAOImpl extends HibernateDaoSupport implements UserDAO {
 		}
 	}
 
+	@Override
+	public List<User> getListUsersExternalCourse(int courseId) throws Exception {
+		try {
+			String hql = "Select user From User user Where user.id not in "
+					+ "(Select userCourse.userId From UserCourse userCourse Where userCourse.courseId = :courseId)";
+			Query query = getSession().createQuery(hql).setParameter("courseId", courseId);
+			return query.list();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
 }

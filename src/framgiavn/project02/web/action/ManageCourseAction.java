@@ -3,6 +3,7 @@
  */
 package framgiavn.project02.web.action;
 
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import com.opensymphony.xwork2.ActionSupport;
@@ -24,6 +25,8 @@ public class ManageCourseAction extends ActionSupport {
 	private Set<Subject> subjects;
 	private Set<User> userList;
 	private Set<User> supervisorList;
+	private List<User> usersExternalCourse;
+	private List<Integer> choseUsers;
 	private Logit2 log = Logit2.getInstance(ManageCourseAction.class);
 
 	public String showCourseDetail() {
@@ -36,6 +39,7 @@ public class ManageCourseAction extends ActionSupport {
 			subjects = (Set<Subject>) maps.get("mapCourse_Subjects").get(course);
 			userList = (Set<User>) maps.get("mapCourse_Users").get(course);
 			supervisorList = (Set<User>) maps.get("mapCourse_Supervisors").get(course);
+			usersExternalCourse = courseBusiness.getUsersExternalCourse(courseId);
 		} catch (Exception e) {
 			log.error("show course detail failed ", e);
 		}
@@ -49,6 +53,7 @@ public class ManageCourseAction extends ActionSupport {
 
 	public String addAndSaveCourse() {
 		try {
+
 			courseBusiness.addAndSave(course);
 		} catch (Exception e) {
 			log.error("save course failed ", e);
@@ -61,6 +66,15 @@ public class ManageCourseAction extends ActionSupport {
 			courseBusiness.deleteCourse(courseId);
 		} catch (Exception e) {
 			log.error("delete failed ", e);
+		}
+		return SUCCESS;
+	}
+
+	public String addTraineeToCourse() {
+		try {
+			courseBusiness.addUserCourse(course.getId(), choseUsers);
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 		return SUCCESS;
 	}
@@ -112,4 +126,21 @@ public class ManageCourseAction extends ActionSupport {
 	public void setSupervisorList(Set<User> supervisorList) {
 		this.supervisorList = supervisorList;
 	}
+
+	public List<User> getUsersExternalCourse() {
+		return usersExternalCourse;
+	}
+
+	public void setUsersExternalCourse(List<User> usersExternalCourse) {
+		this.usersExternalCourse = usersExternalCourse;
+	}
+
+	public List<Integer> getChoseUsers() {
+		return choseUsers;
+	}
+
+	public void setChoseUsers(List<Integer> choseUsers) {
+		this.choseUsers = choseUsers;
+	}
+
 }

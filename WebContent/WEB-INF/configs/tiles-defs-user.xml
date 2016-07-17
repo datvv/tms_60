@@ -101,4 +101,14 @@
 			<add-attribute value="/css/style.css" />
 		</put-list-attribute>
 	</definition>
+	
+	<definition name="SUPERVISOR_SUBJECT_DETAIL" extends="Default.Web">
+		<put-attribute name="body" value="/supervisor/subject_detail.jsp" />
+		<put-list-attribute name="js">
+			<add-attribute value="/js/subject.js" />
+		</put-list-attribute>
+		<put-list-attribute name="css">
+			<add-attribute value="/css/style.css" />
+		</put-list-attribute>
+	</definition>
 </tiles-definitions>

@@ -90,5 +90,8 @@
 	<bean id="springManageCourseAction" class="framgiavn.project02.web.action.ManageCourseAction"
 		scope="prototype">
 	</bean>
+	<bean id="springManageSubjectAction" class="framgiavn.project02.web.action.ManageSubjectAction"
+		scope="prototype">
+	</bean>
 
 </beans>

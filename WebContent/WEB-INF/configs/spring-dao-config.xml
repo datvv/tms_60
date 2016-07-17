@@ -38,5 +38,15 @@
 			<ref bean="sessionFactory" />
 		</property>
 	</bean>
+	<bean id="UserCourseDAO" class="framgiavn.project02.web.dao.impl.UserCourseDAOImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="CourseSubjectDAO" class="framgiavn.project02.web.dao.impl.CourseSubjectDAOImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
 
 </beans>

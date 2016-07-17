@@ -15,4 +15,5 @@ public interface UserDAO {
 
 	public void addSocialUser(com.restfb.types.User me, User user) throws Exception;
 
+	public List<User> getListUsersExternalCourse(int courseId) throws Exception;
 }

@@ -27,6 +27,15 @@
 		<property name="target">
 			<bean class="framgiavn.project02.web.business.impl.CourseBusinessImpl">
 				<property name="courseDAO" ref="CourseDAO" />
+				<property name="userDAO" ref="UserDAO" />
+				<property name="userCourseDAO" ref="UserCourseDAO" />
+			</bean>
+		</property>
+	</bean>
+	<bean id="CourseSubjectBusiness" parent="transactionProxyTemplate">
+		<property name="target">
+			<bean class="framgiavn.project02.web.business.impl.CourseSubjectBusinessImpl">
+				<property name="courseSubjectDAO" ref="CourseSubjectDAO" />
 			</bean>
 		</property>
 	</bean>

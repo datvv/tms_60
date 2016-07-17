@@ -8,6 +8,8 @@ import java.util.Set;
 import framgiavn.project02.web.business.CourseBusiness;
 import framgiavn.project02.web.constant.TmsContant;
 import framgiavn.project02.web.dao.CourseDAO;
+import framgiavn.project02.web.dao.UserCourseDAO;
+import framgiavn.project02.web.dao.UserDAO;
 import framgiavn.project02.web.model.Course;
 import framgiavn.project02.web.model.CourseSubject;
 import framgiavn.project02.web.model.Subject;
@@ -22,6 +24,8 @@ import framgiavn.project02.web.ulti.Logit2;
 public class CourseBusinessImpl implements CourseBusiness {
 
 	private CourseDAO courseDAO;
+	private UserDAO userDAO;
+	private UserCourseDAO userCourseDAO;
 	private static final Logit2 log = Logit2.getInstance(UserBusinessImpl.class);
 
 	public CourseDAO getCourseDAO() {
@@ -109,6 +113,35 @@ public class CourseBusinessImpl implements CourseBusiness {
 		maps.put("mapCourse_Users", mapCourse_Users);
 		maps.put("mapCourse_Supervisors", mapCourse_Supervisors);
 		return maps;
+	}
+
+	@Override
+	public void addUserCourse(int courseId, List<Integer> choseUsers) throws Exception {
+		for (Integer integer : choseUsers) {
+			UserCourse userCourse = new UserCourse(integer, courseId);
+			userCourseDAO.saveUserCourse(userCourse);
+		}
+	}
+
+	public UserDAO getUserDAO() {
+		return userDAO;
+	}
+
+	public void setUserDAO(UserDAO userDAO) {
+		this.userDAO = userDAO;
+	}
+
+	public UserCourseDAO getUserCourseDAO() {
+		return userCourseDAO;
+	}
+
+	public void setUserCourseDAO(UserCourseDAO userCourseDAO) {
+		this.userCourseDAO = userCourseDAO;
+	}
+
+	@Override
+	public List<User> getUsersExternalCourse(int courseId) throws Exception {
+		return userDAO.getListUsersExternalCourse(courseId);
 	}
 
 }

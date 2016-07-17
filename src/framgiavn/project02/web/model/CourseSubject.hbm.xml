@@ -41,5 +41,10 @@
 			<one-to-many class="framgiavn.project02.web.model.UserSubject" />
 		</set>
 	</class>
-	
+	<query name="CourseSubject.getCourseSubjectByCourseIdAndSubjectId">
+		select courseSubject
+		from CourseSubject courseSubject
+		where courseSubject.courseId = :courseId
+		And courseSubject.subjectId = :subjectId
+	</query>
 </hibernate-mapping>

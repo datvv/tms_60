@@ -4,6 +4,25 @@
 	<h2>
 		<fmt:message key="msg.courseDetail" />
 	</h2>
+	<div id="externalUser">
+		<h3>
+			<fmt:message key="msg.traineeExternalCourse" />
+		</h3>
+		<s:form action="addTraineeToCourse" method="POST">
+			<div id="listCheckboxs">
+				<s:checkboxlist list="usersExternalCourse" name="choseUsers"
+					listKey="id" listValue="username" />
+			</div>
+			<s:hidden value="%{course.id}"></s:hidden>
+			<div id="btnSubmit">
+				<s:submit type="button">
+					<s:param name="value">
+						<fmt:message key="msg.submit" />
+					</s:param>
+				</s:submit>
+			</div>
+		</s:form>
+	</div>
 	<h2>
 		<s:property value="%{course.name}" />
 	</h2>

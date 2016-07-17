@@ -16,6 +16,15 @@ public class UserCourse implements Serializable {
 	private User user;
 	private Course course;
 
+	public UserCourse() {
+
+	}
+
+	public UserCourse(int userId, int courseId) {
+		this.userId = userId;
+		this.courseId = courseId;
+	}
+
 	public int getId() {
 		return id;
 	}

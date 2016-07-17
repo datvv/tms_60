@@ -27,5 +27,9 @@
 	<bean id="springManageCourseAction" class="framgiavn.project02.web.action.ManageCourseAction">
 		<property name="courseBusiness" ref="CourseBusiness"></property>
 	</bean>
+	
+	<bean id="springManageSubjectAction" class="framgiavn.project02.web.action.ManageSubjectAction">
+		<property name="courseSubjectBusiness" ref="CourseSubjectBusiness"></property>
+	</bean>
 
 </beans>

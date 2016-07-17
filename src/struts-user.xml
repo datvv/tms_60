@@ -72,5 +72,13 @@
 			method="deleteCourse">
 			<result name="success">SUPERVISOR_COURSES</result>
 		</action>
+		<action name="showSubjectDetail" class="springManageSubjectAction"
+			method="showSubjectDetail">
+			<result name="success">SUPERVISOR_SUBJECT_DETAIL</result>
+		</action>
+		<action name="addTraineeToCourse" class="springManageCourseAction"
+			method="addTraineeToCourse">
+			<result name="success">SUPERVISOR_COURSES</result>
+		</action>
 	</package>
 </struts>
