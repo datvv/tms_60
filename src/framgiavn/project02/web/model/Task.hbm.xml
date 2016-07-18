@@ -8,6 +8,12 @@
 			<column name="id" length="10" />
 			<generator class="increment" />
 		</id>
+		
+		<many-to-one name="subject"
+			class="framgiavn.project02.web.model.Subject" lazy="false" fetch="join"
+			insert="false" update="false">
+			<column name="subjectId" not-null="true" />
+		</many-to-one>
 
 		<property name="name" type="java.lang.String">
 			<column name="name" length="45" />
@@ -24,6 +30,15 @@
 		<property name="subjectId" type="java.lang.Integer">
 			<column name="subjectId" length="10" />
 		</property>
+		
+		<set name="userTasks" cascade="all-delete-orphan" table="User_Task" inverse="true"
+			lazy="false" fetch="join">
+			<key>
+				<column name="taskId" not-null="true" />
+			</key>
+			<one-to-many class="framgiavn.project02.web.model.UserTask" />
+		</set>
+		
 	</class>
 	<query name="Task.SelectTaskSubjectId">
 		select task

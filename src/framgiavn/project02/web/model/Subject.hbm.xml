@@ -24,6 +24,23 @@
 		<property name="instruction" type="java.lang.String">
 			<column name="instruction" length="1000" />
 		</property>
+		
+		<set name="courseSubjects" cascade="all" table="Course_Subject" inverse="true"
+			lazy="false" fetch="join">
+			<key>
+				<column name="subjectId" not-null="true" />
+			</key>
+			<one-to-many class="framgiavn.project02.web.model.CourseSubject" />
+		</set>
+		
+		<set name="tasks" cascade="all" table="Tasks" inverse="true"
+			lazy="false" fetch="join">
+			<key>
+				<column name="subjectId" not-null="true" />
+			</key>
+			<one-to-many class="framgiavn.project02.web.model.Task" />
+		</set>
+		
 	</class>
 	
 </hibernate-mapping>

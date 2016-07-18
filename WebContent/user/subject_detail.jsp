@@ -41,6 +41,30 @@
 	</div>
 	<div class="row-content">
 		<h2>
+			<fmt:message key="msg.trainees" />
+		</h2>
+		<div id="trainees">
+			<s:iterator value="%{traineesList}" var="trainee">
+				<s:a href="abcdef?traineeId=%{#trainee.id}">
+					<s:property value="#trainee.username" />
+				</s:a>
+			</s:iterator>
+		</div>
+	</div>
+	<div class="row-content">
+		<h2>
+			<fmt:message key="msg.supervisors" />
+		</h2>
+		<div id="supervisors">
+			<s:iterator value="%{supervisorsList}" var="supervisor">
+				<s:a href="abcdef?supervisorId=%{#supervisor.id}">
+					<s:property value="#supervisor.username" />
+				</s:a>
+			</s:iterator>
+		</div>
+	</div>
+	<div class="row-content">
+		<h2>
 			<fmt:message key="msg.instruction" />
 			<s:a href="#" id="hideInstruction">
 				<fmt:message key="msg.hide" />

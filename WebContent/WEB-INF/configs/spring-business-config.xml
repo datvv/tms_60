@@ -14,41 +14,12 @@
 			</bean>
 		</property>
 	</bean>
-	<bean id="TaskBusiness" parent="transactionProxyTemplate">
+	<bean id="SubjectScreenBusiness" parent="transactionProxyTemplate">
 		<property name="target">
-			<bean class="framgiavn.project02.web.business.impl.TaskBusinessImpl">
-				<property name="taskDAO" ref="TaskDAO" />
-				<property name="userTaskDAO" ref="UserTaskDAO" />
-			</bean>
-		</property>
-	</bean>
-	<bean id="SubjectBusiness" parent="transactionProxyTemplate">
-		<property name="target">
-			<bean class="framgiavn.project02.web.business.impl.SubjectBusinessImpl">
-				<property name="subjectDAO" ref="SubjectDAO" />
-			</bean>
-		</property>
-	</bean>
-	<bean id="UserSubjectBusiness" parent="transactionProxyTemplate">
-		<property name="target">
-			<bean class="framgiavn.project02.web.business.impl.UserSubjectBusinessImpl">
+			<bean class="framgiavn.project02.web.business.impl.SubjectScreenBusinessImpl">
 				<property name="userSubjectDAO" ref="UserSubjectDAO" />
-			</bean>
-		</property>
-	</bean>
-	<bean id="UserTaskBusiness" parent="transactionProxyTemplate">
-		<property name="target">
-			<bean class="framgiavn.project02.web.business.impl.UserTaskBusinessImpl">
 				<property name="userTaskDAO" ref="UserTaskDAO" />
 				<property name="activityDAO" ref="ActivityDAO" />
-			</bean>
-		</property>
-	</bean>
-	<bean id="ActivityBusiness" parent="transactionProxyTemplate">
-		<property name="target">
-			<bean class="framgiavn.project02.web.business.impl.ActivityBusinessImpl">
-				<property name="activityDAO" ref="ActivityDAO" />
-				<property name="taskDAO" ref="TaskDAO" />
 			</bean>
 		</property>
 	</bean>

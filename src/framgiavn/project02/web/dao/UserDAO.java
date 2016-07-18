@@ -1,5 +1,6 @@
 package framgiavn.project02.web.dao;
 
+import java.util.List;
 import framgiavn.project02.web.model.User;
 
 public interface UserDAO {

@@ -20,6 +20,7 @@ public class Activity implements Serializable {
 	private String content;
 	private Date createAt;
 	private Date updateAt;
+	private User user;
 
 	public Activity() {
 		super();
@@ -86,6 +87,14 @@ public class Activity implements Serializable {
 
 	public void setUpdateAt(Date updateAt) {
 		this.updateAt = updateAt;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 }

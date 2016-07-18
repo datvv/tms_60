@@ -26,4 +26,18 @@ public class UserSubjectDAOImpl extends HibernateDaoSupport implements UserSubje
 
 	}
 
+	@Override
+	public UserSubject getUserSubjectByUserSubjectCourse(int userId, int subjectId, int courseId) throws Exception {
+		try {
+			String hql = "SELECT userSubject from UserSubject userSubject Where userSubject.userId = :userId And courseSubjectId in "
+					+ "(Select courseSubject.id From CourseSubject courseSubject Where courseSubject.courseId = :courseId "
+					+ "and courseSubject.subjectId = :subjectId )";
+			Query query = getSession().createQuery(hql).setParameter("userId", userId)
+					.setParameter("subjectId", subjectId).setParameter("courseId", courseId);
+			return (UserSubject) query.uniqueResult();
+		} catch (RuntimeException e) {
+			throw e;
+		}
+	}
+
 }
