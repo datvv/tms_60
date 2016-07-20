@@ -13,6 +13,8 @@ public class UserCourse implements Serializable {
 	private int userId;
 	private int courseId;
 	private String status;
+	private User user;
+	private Course course;
 
 	public int getId() {
 		return id;
@@ -44,6 +46,22 @@ public class UserCourse implements Serializable {
 
 	public void setStatus(String status) {
 		this.status = status;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public Course getCourse() {
+		return course;
+	}
+
+	public void setCourse(Course course) {
+		this.course = course;
 	}
 
 }

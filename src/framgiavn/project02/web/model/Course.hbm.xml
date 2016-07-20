@@ -13,12 +13,30 @@
 		<property name="instruction" type="java.lang.String">
 			<column name="instruction" />
 		</property>
+		<property name="status" type="java.lang.String">
+			<column name="status" />
+		</property>
 		<property name="startDate" type="java.util.Date">
 			<column name="startDate" />
 		</property>
 		<property name="endDate" type="java.util.Date">
 			<column name="endDate" />
 		</property>
+		<set name="courseSubjects" cascade="all" table="Course_Subject" inverse="true"
+			lazy="false" fetch="join">
+			<key>
+				<column name="courseId" not-null="true" />
+			</key>
+			<one-to-many class="framgiavn.project02.web.model.CourseSubject" />
+		</set>
+		<set name="userCourses" cascade="all" table="User_Course" inverse="true"
+			lazy="false" fetch="join">
+			<key>
+				<column name="courseId" not-null="true" />
+			</key>
+			<one-to-many class="framgiavn.project02.web.model.UserCourse" />
+		</set>
+		
 	</class>
 	<query name="Course.SelectSubjectList">
 		select subject

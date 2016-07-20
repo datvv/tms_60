@@ -20,6 +20,7 @@ public class CourseSubject implements Serializable {
 	private String status;
 	private Set<UserSubject> userSubjects = new HashSet<UserSubject>(0);
 	private Subject subject;
+	private Course course;
 
 	public int getId() {
 		return id;
@@ -67,6 +68,14 @@ public class CourseSubject implements Serializable {
 
 	public void setSubject(Subject subject) {
 		this.subject = subject;
+	}
+
+	public Course getCourse() {
+		return course;
+	}
+
+	public void setCourse(Course course) {
+		this.course = course;
 	}
 
 }

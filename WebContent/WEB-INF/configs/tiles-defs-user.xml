@@ -65,9 +65,36 @@
 			<add-attribute value="/css/style.css" />
 		</put-list-attribute>
 	</definition>
+	
+	<definition name="SUPERVISOR_COURSES" extends="Default.Web">
+		<put-attribute name="body" value="/supervisor/courses.jsp" />
+		<put-list-attribute name="js">
+		</put-list-attribute>
+		<put-list-attribute name="css">
+			<add-attribute value="/css/style.css" />
+		</put-list-attribute>
+	</definition>
 
 	<definition name="COURSE_DETAIL" extends="Default.Web">
 		<put-attribute name="body" value="/user/course_detail.jsp" />
+		<put-list-attribute name="js">
+		</put-list-attribute>
+		<put-list-attribute name="css">
+			<add-attribute value="/css/style.css" />
+		</put-list-attribute>
+	</definition>
+
+	<definition name="SUPERVISOR_COURSE_DETAIL" extends="Default.Web">
+		<put-attribute name="body" value="/supervisor/course_detail.jsp" />
+		<put-list-attribute name="js">
+		</put-list-attribute>
+		<put-list-attribute name="css">
+			<add-attribute value="/css/style.css" />
+		</put-list-attribute>
+	</definition>
+
+	<definition name="SUPERVISOR_COURSE_ADDING" extends="Default.Web">
+		<put-attribute name="body" value="/supervisor/course_adding.jsp" />
 		<put-list-attribute name="js">
 		</put-list-attribute>
 		<put-list-attribute name="css">

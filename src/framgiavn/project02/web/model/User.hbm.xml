@@ -41,7 +41,7 @@
 			<one-to-many class="framgiavn.project02.web.model.Activity" />
 		</set>
 		
-		<set name="userSubjects" cascade="all" table="User_Subject" inverse="true"
+		<set name="userSubjects" cascade="all-delete-orphan" table="User_Subject" inverse="true"
 			lazy="false" fetch="join">
 			<key>
 				<column name="userId" not-null="true" />
@@ -49,14 +49,20 @@
 			<one-to-many class="framgiavn.project02.web.model.UserSubject" />
 		</set>
 		
-		<set name="userTasks" cascade="all" table="User_Task" inverse="true"
+		<set name="userTasks" cascade="all-delete-orphan" table="User_Task" inverse="true"
 			lazy="false" fetch="join">
 			<key>
 				<column name="userId" not-null="true" />
 			</key>
 			<one-to-many class="framgiavn.project02.web.model.UserTask" />
 		</set>
-		
+		<set name="userCourses" cascade="all-delete-orphan" table="User_Course" inverse="true"
+			lazy="false" fetch="join">
+			<key>
+				<column name="userId" not-null="true" />
+			</key>
+			<one-to-many class="framgiavn.project02.web.model.UserCourse" />
+		</set>
 	</class>
 	<query name="User.SelectUserByUserId">
 		select user

@@ -15,6 +15,12 @@
 			<column name="subjectId" not-null="true" />
 		</many-to-one>
 		
+		<many-to-one name="course"
+			class="framgiavn.project02.web.model.Course" lazy="false" fetch="join"
+			insert="false" update="false">
+			<column name="courseId" not-null="true" />
+		</many-to-one>
+		
 		<property name="courseId" type="java.lang.Integer">
 			<column name="courseId" length="10" />
 		</property>	
@@ -27,7 +33,7 @@
 			<column name="status" length="45" />
 		</property>
 		
-		<set name="userSubjects" cascade="all" table="User_Subject" inverse="true"
+		<set name="userSubjects" cascade="all-delete-orphan" table="User_Subject" inverse="true"
 			lazy="false" fetch="join">
 			<key>
 				<column name="course_subject_id" not-null="true" />

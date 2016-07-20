@@ -51,10 +51,26 @@
 		</result-types>
 		<action name="supervisorAccess" class="springSupervisorAction"
 			method="execute">
-			<result name="success">SUPERVISOR_LOGIN_SUCCESS</result>
+			<result name="success">SUPERVISOR_COURSES</result>
 		</action>
 		<action name="supervisorLogin">
 			<result>USER_LOGIN</result>
+		</action>
+		<action name="showCourseDetail" class="springManageCourseAction"
+			method="showCourseDetail">
+			<result name="success">SUPERVISOR_COURSE_DETAIL</result>
+		</action>
+		<action name="addCourse" class="springManageCourseAction"
+			method="addCourse">
+			<result name="success">SUPERVISOR_COURSE_ADDING</result>
+		</action>
+		<action name="addAndSaveCourseAction" class="springManageCourseAction"
+			method="addAndSaveCourse">
+			<result name="success">SUPERVISOR_COURSES</result>
+		</action>
+		<action name="deleteCourse" class="springManageCourseAction"
+			method="deleteCourse">
+			<result name="success">SUPERVISOR_COURSES</result>
 		</action>
 	</package>
 </struts>
